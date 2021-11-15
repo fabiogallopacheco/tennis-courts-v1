@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value = "ReservationController")
+@Api(value = "GuestController")
 @RestController
 @AllArgsConstructor
 public class ReservationController extends BaseRestController {
@@ -31,7 +31,7 @@ public class ReservationController extends BaseRestController {
 
     @ApiOperation(value = "Find Reservation")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Return a ReservationDTO found"),
+            @ApiResponse(code = 200, message = "Return a GuestDTO found"),
     })
     @RequestMapping(value = "/findReservation/{id}", method = RequestMethod.GET, produces="application/json")
     public ResponseEntity<ReservationDTO> findReservation(Long reservationId) {
@@ -41,7 +41,7 @@ public class ReservationController extends BaseRestController {
 
     @ApiOperation(value = "Cancel Reservation")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Return a ReservationDTO cancelled"),
+            @ApiResponse(code = 200, message = "Return a GuestDTO cancelled"),
     })
     @RequestMapping(value = "/cancelReservation/{id}", method = RequestMethod.GET, produces="application/json")
     public ResponseEntity<ReservationDTO> cancelReservation(Long reservationId) {
@@ -50,7 +50,7 @@ public class ReservationController extends BaseRestController {
 
     @ApiOperation(value = "Reschedule a Reservation")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Return a ReservationDTO rescheduled"),
+            @ApiResponse(code = 200, message = "Return a GuestDTO rescheduled"),
     })
     @RequestMapping(value = "/rescheduleReservation/{reservationId}/{scheduleId}", method = RequestMethod.GET, produces="application/json")
     public ResponseEntity<ReservationDTO> rescheduleReservation(Long reservationId, Long scheduleId) {

@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
-    @Query(value = "SELECT s FROM Schedule s JOIN s.tennisCourt t WHERE t.id = :id")
+    @Query(value = "SELECT s FROM Schedule s JOIN s.tennisCourt t WHERE t.id = :id order by s.startDateTime")
     List<Schedule> findByTennisCourt_IdOrderByStartDateTime(@Param("id") Long id);
 
     @Query(value = "SELECT s FROM Schedule s WHERE s.startDateTime BETWEEN :startDateTime and :endDateTime")
